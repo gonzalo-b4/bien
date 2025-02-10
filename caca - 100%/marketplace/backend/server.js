@@ -24,8 +24,8 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/stores', require('./routes/store'));
 app.use('/api/reports', require('./routes/report')); // Añadir la ruta de reportes
 
-// Sincronizar modelos con la base de datos
-sequelize.sync({ force: false }).then(() => {
+// Sincronizar modelos con la base de datos sin eliminar datos existentes
+sequelize.sync({ alter: true }).then(() => {
     console.log('Database & tables created!');
 });
 

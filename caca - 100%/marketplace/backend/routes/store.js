@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { createStore, getStores, getApprovedStores, getPendingStores, approveStore, suspendStore, deleteStore, hasStore } = require('../controllers/storeController');
+const { createStore, getStores, getApprovedStores, getPendingStores, approveStore, suspendStore, deleteStore, hasStore, reactivateStore, getSuspendedStores } = require('../controllers/storeController');
 const auth = require('../middlewares/auth');
 const adminAuth = require('../middlewares/adminAuth');
 
@@ -33,6 +33,16 @@ router.put('/approve/:id', [auth, adminAuth], approveStore);
 // @desc    Suspend a store
 // @access  Private/Admin
 router.put('/suspend/:id', [auth, adminAuth], suspendStore);
+
+// @route   PUT api/stores/reactivate/:id
+// @desc    Reactivate a suspended store
+// @access  Private/Admin
+router.put('/reactivate/:id', [auth, adminAuth], reactivateStore);
+
+// @route   GET api/stores/suspended
+// @desc    Get all suspended stores
+// @access  Private/Admin
+router.get('/suspended', [auth, adminAuth], getSuspendedStores);
 
 // @route   DELETE api/stores/:id
 // @desc    Delete a store

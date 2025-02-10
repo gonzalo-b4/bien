@@ -55,6 +55,16 @@ exports.getPendingStores = async (req, res) => {
     }
 };
 
+exports.getSuspendedStores = async (req, res) => {
+    try {
+        const stores = await Store.findAll({ where: { status: 'suspended' }, include: [{ model: User, attributes: ['name', 'email'] }] });
+        res.json(stores);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+};
+
 exports.approveStore = async (req, res) => {
     try {
         const store = await Store.findByPk(req.params.id);
@@ -126,6 +136,26 @@ exports.hasStore = async (req, res) => {
         } else {
             return res.json({ hasStore: false });
         }
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+};
+
+exports.reactivateStore = async (req, res) => {
+    try {
+        const store = await Store.findByPk(req.params.id);
+        if (!store) {
+            return res.status(404).json({ msg: 'Store not found' });
+        }
+
+        if (store.status !== 'suspended') {
+            return res.status(400).json({ msg: 'Store is not suspended' });
+        }
+
+        store.status = 'active';
+        await store.save();
+        res.json(store);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');
