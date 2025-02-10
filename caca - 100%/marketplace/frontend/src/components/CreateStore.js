@@ -14,7 +14,7 @@ const CreateStore = ({ token }) => {
     useEffect(() => {
         const checkHasStore = async () => {
             try {
-                const res = await axios.get('http://localhost:4000/api/stores/hasStore', {
+                const res = await axios.get('http://localhost:5000/api/stores/hasStore', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }

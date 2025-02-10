@@ -14,10 +14,6 @@ const UserContainer = ({ isVisible, setIsVisible }) => {
         setIsRightPanelActive(false);
     };
 
-    const handleCloseClick = () => {
-        setIsVisible(false);
-    };
-
     const toggleVisibility = () => {
         setIsVisible(!isVisible);
     };

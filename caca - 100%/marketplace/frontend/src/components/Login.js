@@ -37,15 +37,15 @@ const Login = ({ setToken, setRole, handleSignUpClick, handleCloseClick }) => {
             <form onSubmit={onSubmit}>
                 <h1>Iniciar sesión</h1>
                 <div className="social-container">
-                    <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-                    <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-                    <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+                    <button type="button" className="social"><i className="fab fa-facebook-f"></i></button>
+                    <button type="button" className="social"><i className="fab fa-google-plus-g"></i></button>
+                    <button type="button" className="social"><i className="fab fa-linkedin-in"></i></button>
                 </div>
                 <span>Inicia sesión con</span>
                 <input type="email" name="email" placeholder="Email" value={email} onChange={onChange} required />
                 <input type="password" name="password" placeholder="Password" value={password} onChange={onChange} required />
-                <a href="#">Olvide mi contraseña?</a>
-                <a href="#" className="toggle-link" onClick={handleSignUpClick}>Registrarse</a>
+                <button type="button" className="link-button">Olvide mi contraseña?</button>
+                <button type="button" className="toggle-link" onClick={handleSignUpClick}>Registrarse</button>
                 <button type="submit">Iniciar sesión</button>
                 <button className="ghost mobile-only" onClick={handleSignUpClick}>Registrarse</button>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
