@@ -1,0 +1,348 @@
+.navbar {
+    background: linear-gradient(90deg, #ffb17d 0%, #ff6060 100%);
+    z-index: 2;
+    width: calc(100vw - 60px);
+    height: 62px;
+    position: fixed;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 1px 2px 2px 2px rgba(136, 76, 233, 0.418);
+    padding: 5px 20px;
+}
+
+.navbar-logo {
+    position: absolute;
+    left: 50px;
+}
+
+.navbar-logo img {
+    padding-top: 4px;
+    height: 60px;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.navbar-item {
+    margin: 0 10px;
+    position: relative;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.navbar-item input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.navbar-item img {
+    height: 30px;
+    cursor: pointer;
+}
+
+.navbar-item-productos {
+    position: absolute;
+    left: 180px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+}
+
+.navbar-item-productos:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 200px;
+    /* Aumentar el ancho del dropdown */
+}
+
+.dropdown a,
+.dropdown .dropdown-item {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+.dropdown a:hover,
+.dropdown .dropdown-item:hover {
+    background-color: #ddd;
+}
+
+.sub-dropdown {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 200px;
+    /* Aumentar el ancho del sub-dropdown */
+}
+
+.dropdown-item:hover .sub-dropdown {
+    display: block;
+}
+
+.navbar-search {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-search input {
+    padding: 8px;
+    border-radius: 15px;
+    border: none;
+    height: 40px;
+    width: 350px;
+    font-size: 1.1rem;
+}
+
+.navbar-user {
+    position: absolute;
+    right: 60px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding-top: 12px;
+}
+
+.navbar-user i {
+    font-size: 42px;
+    color: rgb(41, 41, 41);
+}
+
+.navbar-carrito {
+    position: absolute;
+    right: 120px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 12px 14px 0px 0px;
+}
+
+.navbar-carrito i {
+    font-size: 40px;
+    color: rgb(41, 41, 41);
+}
+
+.navbar-hamburger {
+    display: none;
+    position: absolute;
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.search-bubble {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #ffb17d;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: width 0.3s ease;
+}
+
+.search-bubble i {
+    font-size: 24px;
+    color: #fff;
+}
+
+.search-bubble.open {
+    width: 300px;
+    border-radius: 25px;
+}
+
+.search-bubble .search-input {
+    display: none;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    color: #333;
+}
+
+.search-bubble.open .search-input {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .navbar-logo {
+        left: 45px;
+        /* Mover el logo 7px más hacia la derecha */
+    }
+
+    .navbar-logo img {
+        height: 50px;
+        /* Achicar el logo un poco */
+    }
+
+    .navbar-item-productos {
+        left: 110px;
+        font-size: 1.6rem;
+    }
+
+    .navbar-search {
+        left: auto;
+        right: 50%;
+        transform: translateX(55%);
+        width: calc(68% - 220px);
+        /* Ajustar el ancho del buscador */
+    }
+
+    .navbar-search input {
+        width: 100%;
+    }
+
+    .navbar-carrito i {
+        font-size: 30px;
+    }
+
+    .navbar-user i {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 425px) {
+    .navbar {
+        justify-content: space-between;
+        width: calc(90% - 5px);
+        left: 5px;
+    }
+
+    .navbar-logo {
+        position: static;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 70px;
+    }
+
+    .navbar-logo img {
+        height: 50px;
+    }
+
+    .navbar-carrito {
+        position: static;
+        margin-left: auto;
+    }
+
+    .navbar-hamburger {
+        display: block;
+        padding: 6px 0px 0px 15px;
+    }
+
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 62px;
+        left: 0;
+        width: 100%;
+        background-color: #ffb17d;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-links.open {
+        display: none;
+        /* Ocultar el contenido detrás del menú */
+    }
+
+    .navbar-item-productos,
+    .navbar-user {
+        position: static;
+        margin: 10px 0;
+    }
+
+    .dropdown {
+        position: static;
+        width: 80%;
+        /* Ajustar el ancho del dropdown para pantallas móviles */
+        box-shadow: none;
+    }
+
+    .sub-dropdown {
+        position: static;
+        width: 100%;
+        /* Ajustar el ancho del sub-dropdown para pantallas móviles */
+        box-shadow: none;
+    }
+
+    .search-bubble {
+        display: flex;
+    }
+
+    .navbar-search {
+        display: none;
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 70%;
+        height: 100%;
+        background-color: #ffb17d;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .mobile-menu-close {
+        align-self: flex-end;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .mobile-menu-content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .mobile-menu-content .navbar-item-productos {
+        margin-bottom: 20px;
+    }
+
+    .mobile-menu-content .navbar-user {
+        margin-top: 20px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
