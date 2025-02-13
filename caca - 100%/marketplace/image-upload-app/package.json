@@ -1,0 +1,30 @@
+{
+  "name": "image-upload-app",
+  "version": "1.0.0",
+  "description": "Aplicación para cargar y gestionar imágenes, devolviendo URLs accesibles.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "busboy": "^1.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "formidable": "^3.5.2",
+    "multer": "^1.4.5-lts.1",
+    "react-dom": "^19.0.0",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.7",
+    "@types/node": "^22.13.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "license": "MIT"
+}
